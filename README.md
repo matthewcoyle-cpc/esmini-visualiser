@@ -1,7 +1,8 @@
 # esmini-visualiser
-A tool which uses the esmini OpenSCENARIO player to generate video visualisations of scenarios
+A tool which uses the [esmini OpenSCENARIO player](http://github.com/esmini/esmini) to generate video visualisations of scenarios
 
 This container creates an Xvfb virtual display, executes Esmini which renders to the virtual display and uses avconv to record from the virtual display to a gif
+
 Render and recording is done at 320x240
 
 ## Getting Started
