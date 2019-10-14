@@ -22,8 +22,10 @@ In order to run this container you'll need docker installed.
 
 #### Environment Variables
 
-* `LENGTH` - Length in seconds of recording
+* `LENGTH` - Length in seconds of recording (default 20)
 * `SCENARIO` - The xosc location relative to the scenarios volume
+* `FRAMERATE` - The framerate to record at (default 20)
+* `RESOLUTION` - The target resolution (default 320x240)
 
 #### Sample Usage
 

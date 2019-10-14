@@ -41,6 +41,8 @@ make -j4
 
 ENV DISPLAY :1.0
 ENV LENGTH 20
+ENV RESOLUTION 320x240
+ENV FRAMERATE 20
 COPY ./run.sh ~/
 RUN ["chmod", "+x", "~/run.sh"]
 ENTRYPOINT ["~/run.sh"]
