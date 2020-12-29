@@ -3,7 +3,7 @@ A tool which uses the [esmini OpenSCENARIO player](http://github.com/esmini/esmi
 
 This container creates an Xvfb virtual display, executes Esmini which renders to the virtual display and uses avconv to record from the virtual display to a gif
 
-Render and recording is done at 320x240
+Render and recording is done at 480x270 as default
 
 ## Getting Started
 
@@ -26,24 +26,24 @@ In order to run this container you'll need docker installed.
 * `SCENARIO` - The xosc location relative to the scenarios volume
 * `FRAMERATE` - The framerate to record at (default 20)
 * `RESOLUTION` - The target resolution (default 320x240)
+* `VIDEO_FORMAT` - Video file format extension (default gif, see [ffmpeg](https://ffmpeg.org/ffmpeg-formats.html) for supported formats)
 
 #### Sample Usage
 
-docker run -v ~/esmini/scenarios:/scenarios -e SCENARIO=M804/M4.xosc -e LENGTH=20 matthewcoylecpc/esmini-visualiser
+docker run -v ~/esmini/resources:/scenarios -e SCENARIO=xosc/cut-in.xosc -e LENGTH=20 -e VIDEO_FORMAT=mp4 matthewcoylecpc/esmini-visualiser
 
 This will do the following:
-* Execute the scenario ~/esmini/scenarios/M804/M4.xosc
-* Record a 20 second gif
-* Output to ~/esmini/scenarios/M804/M4.gif
-
+* Execute the scenario ~/esmini/resources/xosc/cut-in.xosc
+* Record a 20 second mpeg 4 video
+* Output ~/esmini/resources/cut-in.mp4 and ~/esmini/resources/cut-in.dat
 
 #### Volumes
 
-* `/scenarios/` - The base directory used to pass in scenarios
+* `/scenarios/` - The directory to pass in scenarios from and deliver output to
 
 #### Useful File Locations
 
-* `/root/esmini/build/EnvironmentSimulator/EgoSimulator/EgoSimulator` - Esmini executable
+* `/root/esmini/bin/esmini` - esmini executable
   
 * `~/run.sh` - Execution script
 
@@ -58,4 +58,4 @@ This will do the following:
 
 ## Acknowledgments
 
-* Thanks to Emil Knabe for development of Esmini including assisting the development of this container
+* Thanks to Emil Knabe for development of [esmini](https://github.com/esmini/esmini) including assisting the development of this container
